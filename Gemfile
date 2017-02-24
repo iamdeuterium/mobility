@@ -5,7 +5,11 @@ gemspec
 
 group :development, :test do
   if ENV['ORM'] == 'active_record'
-    gem 'activerecord', '>= 5.0', '< 5.1'
+    if ENV['RAILS_VERSION'] == '4.2'
+      gem 'activerecord', '>= 4.2.6', '< 5.0'
+    else
+      gem 'activerecord', '>= 5.0', '< 5.1'
+    end
     gem "generator_spec", '~> 0.9.3'
   end
 
